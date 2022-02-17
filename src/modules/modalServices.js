@@ -1,4 +1,4 @@
-//Модальное окно услуг
+//Модальное окно услуг (вызова замерщика)
 const modalServices = () => {
     const modal = document.querySelector(".services-modal");
     const btns = document.querySelectorAll("a[href^='#application']");
@@ -26,13 +26,13 @@ const modalServices = () => {
                         duration: 500,
                     }
                 );
-        }   else {
+            } else {
                 modal.style.display = "block";
             }
         });
     });
     
-    // Событие по клику
+    // Клик
     modal.addEventListener("click", (e) => {
         if (/* !e.target.closest(".overlay") ||*/ e.target.classList.contains("services-modal__close")) {
             modal.style.display = "none";

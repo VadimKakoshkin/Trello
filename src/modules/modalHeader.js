@@ -1,4 +1,4 @@
-//Модальное окно
+//Модальное окно в шапке сайта
 const modalHeader = () => {
     const modal = document.querySelector(".header-modal");
     const btns = document.querySelectorAll("a[href^='#callback']");

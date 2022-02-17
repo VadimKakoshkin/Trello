@@ -1,10 +1,10 @@
 // Таймер
 const timer = (deadline) => {
     // Объявление переменных таймера
-    let timerDays = document.querySelectorAll(".count_1 span");
-    let timerHours = document.querySelectorAll(".count_2 span");
-    let timerMinutes = document.querySelectorAll(".count_3 span");
-    let timerSeconds = document.querySelectorAll(".count_4 span");
+    let timeDays = document.querySelectorAll(".count_1 span");
+    let timeHours = document.querySelectorAll(".count_2 span");
+    let timeMinutes = document.querySelectorAll(".count_3 span");
+    let timeSeconds = document.querySelectorAll(".count_4 span");
 
     // Отсчёт таймера
     const getTimeRemaining = () => {
@@ -27,10 +27,10 @@ const timer = (deadline) => {
     // Присвоение значений элементам для каждого таймера
     const updateClock = () => {
         let getTime = getTimeRemaining();
-        timerDays.forEach(item => {item.textContent = addZero(getTime.days)});
-        timerHours.forEach(item => {item.textContent = addZero(getTime.hours)});
-        timerMinutes.forEach(item => {item.textContent = addZero(getTime.minutes)});
-        timerSeconds.forEach(item => {item.textContent = addZero(getTime.seconds)});
+        timeDays.forEach(item => {item.textContent = addZero(getTime.days)});
+        timeHours.forEach(item => {item.textContent = addZero(getTime.hours)});
+        timeMinutes.forEach(item => {item.textContent = addZero(getTime.minutes)});
+        timeSeconds.forEach(item => {item.textContent = addZero(getTime.seconds)});
     };
 
     // Время вышло
