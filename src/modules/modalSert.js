@@ -1,47 +1,52 @@
 //Модальное окно сертификата
 const modalSert = () => {
-    const sectionDoc = document.getElementById('documents');
-    const sertificateBlocks = sectionDoc.querySelectorAll('.text-center > div');
-    const overlay = document.querySelector('.overlay');
+    const btns = document.querySelectorAll(".sertificate-document");
+    const overlay = document.querySelector(".overlay");
 
-    const getClose = (newModal) => {
-        newModal.remove();
-        overlay.classList.toggle('overlay-open');
-    }
-    
-    const getNewModal = (linkDocument) => {
-        const newModal = document.createElement('div');
-        const newImg = document.createElement('img');
-        const newBtn = document.createElement('span');
+    const modalImg = document.createElement('div');
+    modalImg.classList.add('header-modal', 'header-modal--opened');
+    modalImg.style.cssText='max-width: 42%;'
+    document.body.append(modalImg);
 
-        newBtn.classList.add('sert-modal__close');
-        newBtn.textContent = 'x';
-        newImg.classList.add('sert-img__modal');
-        newImg.src = linkDocument;
+    const btnClose = document.querySelector('.header-modal__close')
+    const btnImg = btnClose.cloneNode(true);
+    btnImg.style.cssText='background: #4f686e; padding: 8px; border-radius: 50%; color: #fff;'
+    modalImg.append(btnImg);
 
-        newModal.append(newImg);
-        newModal.append(newBtn);
-        newModal.classList.toggle('modal-sert');
+    const docResource = document.querySelector('.sertificate-document .img-responsive')
+    const docImg = docResource.cloneNode(true);
+    docImg.src = "images/documents/original/document4.jpg";
+    modalImg.append(docImg);
 
-        overlay.append(newModal);
-        overlay.classList.toggle('overlay-open');
-        
-        overlay.addEventListener('click', (e) => {
-            if (e.target === overlay || e.target === newBtn) {
-                getClose(newModal);
-            }
-        });
-    };
-
-    //Клик
-    sertificateBlocks.forEach((sertificateBlock, id) => {
-        let sertLink = sertificateBlock.querySelector('a');
-
-        sertLink.addEventListener('click', (e) => {
+    //Условие
+    btns.forEach((btn) => {
+        btn.addEventListener("click", (e) => {
             e.preventDefault();
-            getNewModal(sertLink);
-        })
+            modalImg.style.display = 'flex';
+            overlay.style.display = "block";
+        });
     });
-}
+  
+    //Клик
+    btnImg.addEventListener('mouseenter', function (e) { 
+        e.target.style.transition = '1s';
+        e.target.style.background = '#5d5d5d';
+    });
+    
+    btnImg.addEventListener('mouseleave', function (e) {
+        e.target.style.transition = '1s';
+        e.target.style.background = '#4f686e'; 
+    });
 
+    btnImg.addEventListener("click", () => {
+        modalImg.style.display = 'none';
+        overlay.style.display = "none";
+    });
+
+    overlay.addEventListener("click", () => {
+        modalImg.style.display = 'none';
+        overlay.style.display = "none";
+    });
+};
+  
 export default modalSert;

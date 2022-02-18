@@ -12,4 +12,4 @@ modalHeader();
 modalServices();
 modalSert();
 calculator();
-formSend({ formId, someElem = [] });
+formSend();
