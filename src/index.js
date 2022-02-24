@@ -5,6 +5,8 @@ import modalServices from './modules/modalServices';
 import modalSert from './modules/modalSert';
 import calculator from './modules/calculator';
 import formSend from './modules/formSend';
+import validation from './modules/validation';
+import slider from './modules/slider';
 
 timer('23 february 2022');
 scrollUp();
@@ -12,4 +14,14 @@ modalHeader();
 modalServices();
 modalSert();
 calculator();
-formSend();
+formSend({
+    idForm: ('#actionForm1, #actionForm2, #actionFormModal1, #actionFormModal2'),
+    someElem: [
+        {
+            type: 'input',
+            id: 'calc-total'
+        }
+    ]
+});
+validation();
+slider();
