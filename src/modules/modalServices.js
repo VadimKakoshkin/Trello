@@ -3,8 +3,7 @@ const modalServices = () => {
     const modal = document.querySelector(".services-modal");
     const btns = document.querySelectorAll("a[href^='#application']");
     const modalContent = document.querySelector(".services-modal--opened");
-    const overlay = document.querySelector(".overlay");
-    
+    const overlay = document.querySelector(".overlay"); 
     
     //Условие
     btns.forEach((btn) => {

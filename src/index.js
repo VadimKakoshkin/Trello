@@ -8,12 +8,13 @@ import formSend from './modules/formSend';
 import validation from './modules/validation';
 import slider from './modules/slider';
 
-timer('23 february 2022');
+timer('28 february 2022');
 scrollUp();
 modalHeader();
 modalServices();
 modalSert();
 calculator();
+slider();
 formSend({
     idForm: ('#actionForm1, #actionForm2, #actionFormModal1, #actionFormModal2'),
     someElem: [
@@ -24,4 +25,3 @@ formSend({
     ]
 });
 validation();
-slider();
